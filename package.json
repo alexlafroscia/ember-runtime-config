@@ -17,7 +17,7 @@
     "lint:js": "eslint ./*.js addon addon-test-support app blueprints config lib server test-support tests",
     "start": "ember serve",
     "test": "GREETING='Hello, world!' ember test",
-    "test:all": "ember try:each"
+    "release": "standard-version"
   },
   "husky": {
     "hooks": {
@@ -58,7 +58,8 @@
     "husky": "^1.0.0-rc.8",
     "loader.js": "^4.2.3",
     "prettier": "^1.13.3",
-    "qunit-dom": "^0.6.3"
+    "qunit-dom": "^0.6.3",
+    "standard-version": "^4.4.0"
   },
   "engines": {
     "node": "6.* || >= 7.*"
