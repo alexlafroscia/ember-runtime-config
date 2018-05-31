@@ -16,7 +16,7 @@
     "build": "ember build",
     "lint:js": "eslint ./*.js addon addon-test-support app blueprints config lib server test-support tests",
     "start": "ember serve",
-    "test": "ember test",
+    "test": "GREETING='Hello, world!' ember test",
     "test:all": "ember try:each"
   },
   "husky": {
@@ -25,7 +25,8 @@
     }
   },
   "dependencies": {
-    "ember-cli-babel": "^6.6.0"
+    "ember-cli-babel": "^6.6.0",
+    "theredoc": "^1.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^6.2.0",
@@ -53,12 +54,14 @@
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-prettier": "^2.6.0",
+    "express": "^4.16.3",
     "husky": "^1.0.0-rc.8",
     "loader.js": "^4.2.3",
-    "prettier": "^1.13.3"
+    "prettier": "^1.13.3",
+    "qunit-dom": "^0.6.3"
   },
   "engines": {
-    "node": "^4.5 || 6.* || >= 7.*"
+    "node": "6.* || >= 7.*"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
