@@ -1,4 +1,4 @@
-ember-runtime-config
+ember-runtime-config [![Build Status](https://travis-ci.org/alexlafroscia/ember-runtime-config.svg?branch=master)](https://travis-ci.org/alexlafroscia/ember-runtime-config)
 ==============================================================================
 
 > Configure an Ember application with server-side environment variables
