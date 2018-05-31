@@ -10,7 +10,7 @@
  *
  * Make sure that the object is serializable to a POJO.
  */
-module.export = function() {
+module.exports = function() {
   return {
     GREETING: process.env.GREETING || 'Hello, world!'
   };
