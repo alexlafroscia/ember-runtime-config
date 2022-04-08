@@ -1,4 +1,4 @@
-ember-runtime-config [![Build Status](https://travis-ci.org/alexlafroscia/ember-runtime-config.svg?branch=master)](https://travis-ci.org/alexlafroscia/ember-runtime-config)
+ember-runtime-config [![Build Status](https://github.com/alexlafroscia/ember-runtime-config/actions/workflows/ci.yml/badge.svg)](https://github.com/alexlafroscia/ember-runtime-config/actions/workflows/ci.yml)
 ==============================================================================
 
 > Configure an Ember application with server-side environment variables
@@ -8,6 +8,15 @@ Normally, if you want to configure your Ember application on a per-environment b
 But what happens if you want to build your application once, but still configure the application based on the environment?
 
 This addon allows you to do just that!
+
+
+Compatibility
+------------------------------------------------------------------------------
+
+* Ember.js v3.24 or above
+* Ember CLI v3.24 or above
+* Node.js v14 or above
+
 
 Installation
 ------------------------------------------------------------------------------
@@ -47,29 +56,8 @@ app.listen(3000, () => {
 Contributing
 ------------------------------------------------------------------------------
 
-### Installation
+See the [Contributing](CONTRIBUTING.md) guide for details.
 
-* `git clone <repository-url>`
-* `cd ember-runtime-config`
-* `yarn install`
-
-### Linting
-
-* `yarn lint:js`
-* `yarn lint:js --fix`
-
-### Running tests
-
-* `ember test` – Runs the test suite on the current Ember version
-* `ember test --server` – Runs the test suite in "watch mode"
-* `ember try:each` – Runs the test suite against multiple Ember versions
-
-### Running the dummy application
-
-* `ember serve`
-* Visit the dummy application at [http://localhost:4200](http://localhost:4200).
-
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
 
 License
 ------------------------------------------------------------------------------
