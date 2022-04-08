@@ -4,7 +4,7 @@ const path = require('path');
 const middleware = require('./middleware');
 
 module.exports = {
-  name: 'ember-runtime-config',
+  name: require('./package').name,
 
   serverMiddleware({ app }) {
     this._startMiddleware(app);
