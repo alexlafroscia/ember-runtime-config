@@ -62,7 +62,7 @@
     "standard-version": "^4.4.0"
   },
   "engines": {
-    "node": "6.* || >= 7.*"
+    "node": "14.* || 16.* || >= 18"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
