@@ -4,5 +4,5 @@ module.exports = {
 
   normalizeEntityName(entityName) {
     return entityName || '';
-  }
+  },
 };

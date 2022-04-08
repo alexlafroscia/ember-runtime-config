@@ -28,5 +28,5 @@ module.exports = {
     if (hook === 'head') {
       return `<script type="text/javascript" src="/__/env.js"></script>`;
     }
-  }
+  },
 };

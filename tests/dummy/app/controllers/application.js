@@ -1,9 +1,10 @@
 import Controller from '@ember/controller';
-import { readOnly } from '@ember/object/computed';
 import env from 'ember-runtime-config';
 
-export default Controller.extend({
-  env,
+export default class extends Controller {
+  env = env;
 
-  greeting: readOnly('env.GREETING')
-});
+  get greeting() {
+    return this.env.GREETING;
+  }
+}

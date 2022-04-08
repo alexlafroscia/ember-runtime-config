@@ -3,7 +3,7 @@
 const theredoc = require('theredoc');
 const getConfig = require('../lib/get-config');
 
-module.exports = function(projectRoot) {
+module.exports = function (projectRoot) {
   const runtimeConfig = getConfig(projectRoot);
   const scriptContent = theredoc`
     (function(context) {
