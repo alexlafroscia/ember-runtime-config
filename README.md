@@ -33,6 +33,12 @@ To access the variables from the client, you can import the environment like so:
 import env from 'ember-runtime-config';
 ```
 
+Additionally, yu may use template helper `runtime-config` to access the variables in the template like so:
+
+```handlebars
+{{runtime-config "SOME_KEY"}}
+```
+
 
 Usage
 ------------------------------------------------------------------------------
