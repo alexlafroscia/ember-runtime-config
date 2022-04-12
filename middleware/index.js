@@ -14,7 +14,7 @@ module.exports = function (projectRoot) {
   return (req, res, next) => {
     if (req.path === '/__/env.js') {
       res.set('Content-Type', 'application/javascript');
-      res.set('Cache-Control', 'no-cache');
+      res.set('Cache-Control', 'max-age=0, no-cache, no-store');
       res.send(scriptContent);
     } else {
       next();
