@@ -59,15 +59,31 @@ app.listen(3000, () => {
 ```
 
 To have access to runtime variables in fastboot mode add runtime-config properties within the sandbox:
+
 ```javascript
-buildSandboxGlobals (defaultGlobals) {
-  return Object.assign(
-    {},
-    defaultGlobals,
-    require('ember-runtime-config/fastboot').buildSandboxGlobals(path.dirname(__dirname))
-  );
-}
+// config/fastboot.js or config/fastboot-testing.js
+const { dirname } = require('path');
+
+module.exports = function () {
+  return {
+    buildSandboxGlobals(defaultGlobals) {
+      let fastbootOnlyConfig = {
+        SOME_KEY: 'fastbootOnly'
+      };
+
+      return Object.assign(
+        {},
+        defaultGlobals,
+        require('ember-runtime-config/fastboot').buildSandboxGlobals(
+          dirname(__dirname),
+          fastbootOnlyConfig
+        )
+      );
+    },
+  };
+};
 ```
+
 More info can be found in [ember-cli-fastboot](https://github.com/ember-fastboot/ember-cli-fastboot/tree/master/packages/fastboot#usage).
 
 Contributing

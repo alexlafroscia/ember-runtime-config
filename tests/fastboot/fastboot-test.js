@@ -7,6 +7,6 @@ module('FastBoot', function (hooks) {
   test('it renders the correct html', async function (assert) {
     await visit('/');
 
-    assert.dom('h1').hasText('Hello, world!');
+    assert.dom('h1').hasText('Hello, FastBoot world!');
   });
 });
