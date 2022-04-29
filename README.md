@@ -70,6 +70,30 @@ buildSandboxGlobals (defaultGlobals) {
 ```
 More info can be found in [ember-cli-fastboot](https://github.com/ember-fastboot/ember-cli-fastboot/tree/master/packages/fastboot#usage).
 
+Test helpers
+------------------------------------------------------------------------------
+```setRuntimeConfig``` set custom config in application.
+
+Example:
+```javascript
+  import { setRuntimeConfig } from 'ember-runtime-config/test-support';
+
+  module('Acceptance | Awesome test', function (hooks) {
+    setupApplicationTest(hooks);
+
+    test('updating an environment variable and accessing it', async function (assert) {
+      setRuntimeConfig({
+        GREETING: 'Welcome!'
+      });
+
+      await visit('/');
+
+      assert.dom('h1').hasText('Welcome!');
+    });
+  });
+```
+
+
 Contributing
 ------------------------------------------------------------------------------
 
