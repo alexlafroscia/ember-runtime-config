@@ -12,6 +12,6 @@
  */
 module.exports = function() {
   return {
-    GREETING: process.env.GREETING || 'Hello, world!'
+    GREETING: process.env.GREETING || 'Hello, world!',
   };
 };

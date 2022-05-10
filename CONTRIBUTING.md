@@ -8,18 +8,20 @@
 
 ## Linting
 
-* `yarn lint:js`
-* `yarn lint:js:fix`
+Inside any of the packages you can run:
+
+* `yarn lint`
+* `yarn lint:fix`
 
 ## Running tests
 
-* `ember test` – Runs the test suite on the current Ember version
-* `ember test --server` – Runs the test suite in "watch mode"
-* `ember try:each` – Runs the test suite against multiple Ember versions
+* `cd packages/ember-runtime-config && ember test` – Runs the test suite on the current Ember version
+* `cd packages/ember-runtime-config && cd test-app && ember test --server` – Runs the test suite in "watch mode"
+* `cd packages/ember-runtime-config && cd test-app && ember try:each` – Runs the test suite against multiple Ember versions
 
 ## Running the dummy application
 
-* `ember serve`
+* `cd packages/ember-runtime-config && ember serve`
 * Visit the dummy application at [http://localhost:4200](http://localhost:4200).
 
 For more information on using ember-cli, visit [https://cli.emberjs.com/release/](https://cli.emberjs.com/release/).
