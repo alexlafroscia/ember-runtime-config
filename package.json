@@ -11,8 +11,9 @@
     "packages/*"
   ],
   "scripts": {
-    "prepare": "[ -n \"$CI\" ] || husky install",
-    "test": "cd packages/ember-runtime-config && yarn test"
+    "build": "yarn workspace ember-runtime-config build",
+    "prepare": "([ -n \"$CI\" ] || husky install) && yarn build",
+    "test": "yarn workspace test-app test"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",

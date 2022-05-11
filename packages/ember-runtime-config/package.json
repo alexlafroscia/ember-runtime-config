@@ -5,17 +5,40 @@
   "keywords": [
     "ember-addon"
   ],
+  "homepage": "https://github.com/alexlafroscia/ember-runtime-config/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alexlafroscia/ember-runtime-config.git"
+    "url": "https://github.com/alexlafroscia/ember-runtime-config.git",
+    "directory": "packages/ember-runtime-config"
   },
   "license": "MIT",
   "author": "Alex LaFroscia",
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*",
+    "./addon-main.js": "./addon-main.js",
+    "./blueprints": "./blueprints/*",
+    "./fastboot": "./fastboot/index.js",
+    "./lib": "./lib/*",
+    "./middleware": "./middleware/index.js",
+    "./test-support": "./dist/test-support/index.js"
+  },
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
+  "files": [
+    "addon-main.js",
+    "blueprints",
+    "dist",
+    "fastboot",
+    "lib",
+    "middleware"
+  ],
   "scripts": {
+    "build": "rollup --config",
+    "prepublishOnly": "rollup --config",
+    "start": "rollup --config --watch",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
     "lint:js": "eslint . --cache",
@@ -23,20 +46,33 @@
     "release": "standard-version"
   },
   "dependencies": {
-    "ember-cli-babel": "^7.26.11",
+    "@embroider/addon-shim": "^1.6.0",
     "theredoc": "^1.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.10",
     "@babel/eslint-parser": "^7.17.0",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
     "@babel/plugin-proposal-decorators": "^7.17.9",
-    "eslint": "^8.12.0",
+    "@embroider/addon-dev": "^1.6.0",
+    "@rollup/plugin-babel": "^5.3.1",
+    "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-ember": "^10.5.9",
+    "eslint-plugin-ember": "^10.6.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.6.2",
+    "rollup": "^2.72.1",
     "standard-version": "^9.3.2"
+  },
+  "peerDependencies": {
+    "@ember/test-helpers": "*"
+  },
+  "peerDependenciesMeta": {
+    "@ember/test-helpers": {
+      "optional": true
+    }
   },
   "engines": {
     "node": "14.* || 16.* || >= 18"
@@ -48,8 +84,17 @@
     "edition": "octane"
   },
   "ember-addon": {
+    "main": "addon-main.js",
+    "type": "addon",
+    "version": 2,
+    "versionCompatibility": {
+      "ember": "3.24 || 3.28 || >=4.0"
+    },
     "after": [
       "ember-cli-dotenv"
-    ]
+    ],
+    "app-js": {
+      "./helpers/runtime-config.js": "./dist/_app_/helpers/runtime-config.js"
+    }
   }
 }

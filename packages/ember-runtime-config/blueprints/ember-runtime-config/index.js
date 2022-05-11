@@ -1,7 +1,4 @@
 module.exports = {
-  description: '',
-
-  normalizeEntityName(entityName) {
-    return entityName || '';
-  },
+  description: 'Setup ember-runtime-config',
+  normalizeEntityName() {},
 };
