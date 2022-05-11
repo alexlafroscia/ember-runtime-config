@@ -1,6 +1,12 @@
 {
   "name": "ember-runtime-config",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexlafroscia/ember-runtime-config.git"
+  },
+  "license": "MIT",
+  "author": "Alex LaFroscia",
   "workspaces": [
     "packages/*"
   ],

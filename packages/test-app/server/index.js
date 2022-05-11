@@ -4,11 +4,11 @@ const path = require('path');
 const express = require('express');
 
 const port = process.env.PORT || 3000;
-const emberAppRoot = path.resolve(__dirname, '../dummy');
-const emberDistRoot = path.resolve(__dirname, '../../dist');
+const emberAppRoot = path.resolve(__dirname, '..');
+const emberDistRoot = path.resolve(__dirname, '../dist');
 
 const app = express();
-const emberRuntimeConfigMiddleware = require('../../middleware');
+const emberRuntimeConfigMiddleware = require('ember-runtime-config/middleware');
 
 app.use(emberRuntimeConfigMiddleware(emberAppRoot));
 app.use(express.static(emberDistRoot));
