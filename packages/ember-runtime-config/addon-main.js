@@ -14,7 +14,7 @@ module.exports = {
 
   contentFor(hook) {
     if (hook === 'head') {
-      return `<script type="text/javascript" src="/__/env.js"></script>`;
+      return `<script type="text/javascript" src="/__/env.js" data-embroider-ignore></script>`;
     }
   },
 };

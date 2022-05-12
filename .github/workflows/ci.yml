@@ -91,3 +91,39 @@ jobs:
       - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
         working-directory: packages/test-app
+
+  types:
+    name: type tests
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        ts-version:
+          - 4.4
+          - 4.5
+          - 4.6
+          - 4.7
+          - 4.8
+          - next
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14.x
+          cache: yarn
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Install TypeScript
+        run: yarn add -D typescript@${{ matrix.ts-version }}
+        working-directory: packages/ember-runtime-config
+
+      - name: Compile TypeScript
+        run: tsc --noEmit
+        working-directory: packages/ember-runtime-config
+
+    continue-on-error: ${{ matrix.ts-version == 'next' }}
