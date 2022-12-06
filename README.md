@@ -92,21 +92,21 @@ Test helpers
 
 Example:
 ```javascript
-  import { setRuntimeConfig } from 'ember-runtime-config/test-support';
+import { setRuntimeConfig } from 'ember-runtime-config/test-support';
 
-  module('Acceptance | Awesome test', function (hooks) {
-    setupApplicationTest(hooks);
+module('Acceptance | Awesome test', function (hooks) {
+  setupApplicationTest(hooks);
 
-    test('updating an environment variable and accessing it', async function (assert) {
-      setRuntimeConfig({
-        GREETING: 'Welcome!'
-      });
-
-      await visit('/');
-
-      assert.dom('h1').hasText('Welcome!');
+  test('updating an environment variable and accessing it', async function (assert) {
+    setRuntimeConfig({
+      GREETING: 'Welcome!'
     });
+
+    await visit('/');
+
+    assert.dom('h1').hasText('Welcome!');
   });
+});
 ```
 
 TypeScript
