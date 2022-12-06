@@ -109,6 +109,77 @@ Example:
   });
 ```
 
+TypeScript
+------------------------------------------------------------------------------
+
+The library ships with full support for TypeScript usage.
+The API described above works as expected, with one additional nicety and one caveat.
+
+**Nicety:** the library provides you the ability to define statically known
+feature flags by using a *registry* (as you may be familiar with from the registries
+for Ember's services, Ember Data models, etc.). If you define your keys in a registry like this:
+
+```ts
+// types/index.d.ts, with other types defined for your app
+
+declare module 'ember-runtime-config/registry' {
+  export default interface Registry {
+    'prop-a': boolean;
+    'prop-b': string;
+  }
+}
+```
+
+Then in your app code, you will get type checking: TS will require you to use
+one of those keys and reject unknown keys.
+
+```ts
+import Component from '@glimmer/component';
+import runtimeConfig from 'ember-runtime-config';
+ 
+export default class Example extends Component {
+  get imagePrefix() {
+    return runtimeConfig['prop-a']; // ✅
+  }
+
+  get whoops() {
+    return runtimeConfig.propX; // ❌
+  }
+}
+```
+
+This applies to all the values. If you do *not* add any keys to the `Registry` interface,
+the types will fall back to simply allowing any string and returning a `unknown` value.
+
+This project ships [Glint](https://github.com/typed-ember/glint) types,
+which allow you when using TypeScript to get strict type checking in your templates.
+
+Unless you are using [strict mode](http://emberjs.github.io/rfcs/0496-handlebars-strict-mode.html) templates
+(via [first class component templates](http://emberjs.github.io/rfcs/0779-first-class-component-templates.html)),
+Glint needs a [Template Registry](https://typed-ember.gitbook.io/glint/using-glint/ember/template-registry)
+that contains entries for the element modifier provided by this addon.
+To add these registry entries automatically to your app, you just need to import `ember-runtime-config/template-registry`
+from somewhere in your app. When using Glint already, you will likely have a file like
+`types/glint.d.ts` where you already import glint types, so just add the import there:
+
+ ```ts
+ import '@glint/environment-ember-loose';
+ import type EmberRuntimeConfigRegistry from 'ember-runtime-config/template-registry';
+ declare module '@glint/environment-ember-loose/registry' {
+   export default interface Registry extends EmberRuntimeConfigRegistry, /* other addon registries */ {
+     // local entries
+   }
+ }
+ ```
+
+> **Note** Glint itself is still under active development, and as such breaking changes might occur.
+> Therefore, Glint support by this addon is also considered experimental, and not covered by our SemVer contract!
+
+#### Stability
+
+This library provides type definitions and follows the current draft of the
+[Semantic Versioning for TypeScript Types](https://www.semver-ts.org) specification.
+The public API is all published types. It currently supports TypeScript 4.4, 4.5, and 4.6.
 
 Contributing
 ------------------------------------------------------------------------------

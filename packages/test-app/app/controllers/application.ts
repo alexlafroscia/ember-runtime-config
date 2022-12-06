@@ -1,8 +1,8 @@
 import Controller from '@ember/controller';
-import env from 'ember-runtime-config';
+import runtimeConfig from 'ember-runtime-config';
 
 export default class extends Controller {
-  env = env;
+  env = runtimeConfig;
 
   get greeting() {
     return this.env.GREETING;
