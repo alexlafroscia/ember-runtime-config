@@ -179,7 +179,7 @@ from somewhere in your app. When using Glint already, you will likely have a fil
 
 This library provides type definitions and follows the current draft of the
 [Semantic Versioning for TypeScript Types](https://www.semver-ts.org) specification.
-The public API is all published types. It currently supports TypeScript 4.4, 4.5, and 4.6.
+The public API is all published types. It currently supports TypeScript 4.4 - 4.9.
 
 Contributing
 ------------------------------------------------------------------------------
