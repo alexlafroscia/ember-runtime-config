@@ -4,7 +4,7 @@ import { later } from '@ember/runloop';
 import type ConfigRegistry from 'ember-runtime-config/registry';
 
 export type RuntimeConfig = keyof ConfigRegistry extends never
-  ? { [key: string]: unknown }
+  ? { [key: string]: string }
   : ConfigRegistry;
 
 const config = defer<RuntimeConfig>();
