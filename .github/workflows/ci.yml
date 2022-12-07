@@ -27,17 +27,11 @@ jobs:
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Lint Addon
-        run: yarn lint:js
-        working-directory: packages/ember-runtime-config
-
-      - name: Lint Test App
-        run: yarn lint:js
-        working-directory: packages/test-app
+      - name: Lint
+        run: yarn lint
 
       - name: Run Tests
         run: yarn test:ember
-        working-directory: packages/test-app
 
   floating:
     name: "Floating Dependencies"
@@ -55,7 +49,6 @@ jobs:
 
       - name: Run Tests
         run: yarn test:ember
-        working-directory: packages/test-app
 
   try-scenarios:
     name: ${{ matrix.try-scenario }}
@@ -91,7 +84,6 @@ jobs:
 
       - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
-        working-directory: packages/test-app
 
   types:
     name: type tests
@@ -121,10 +113,8 @@ jobs:
 
       - name: Install TypeScript
         run: yarn add -D typescript@${{ matrix.ts-version }}
-        working-directory: packages/ember-runtime-config
 
       - name: Compile TypeScript
         run: tsc --noEmit
-        working-directory: packages/ember-runtime-config
 
     continue-on-error: ${{ matrix.ts-version == 'next' }}
