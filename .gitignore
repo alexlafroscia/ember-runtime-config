@@ -1,8 +1,21 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
+# compiled output
+dist/
+declarations/
+
+# npm/pnpm/yarn pack output
+*.tgz
+
 # dependencies
-/node_modules
+node_modules/
 
 # misc
-npm-debug.log*
-yarn-error.log
+/.env*
+/.pnp*
+/.pnpm-debug.log
+.eslintcache
+/connect.lock
+/coverage/
+/npm-debug.log*
+/yarn-error.log

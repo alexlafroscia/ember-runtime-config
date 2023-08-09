@@ -1,12 +1,12 @@
 import { registerDestructor } from '@ember/destroyable';
 import { getContext, TestContext } from '@ember/test-helpers';
 
-import type { RuntimeConfig } from '../../index';
+import type { RuntimeConfig } from '../../index.ts';
 
 const initialConfig = Symbol('setRuntimeConfig');
 
 interface ModifiedTestContext extends TestContext {
-  [initialConfig]: Partial<RuntimeConfig>;
+  [initialConfig]: RuntimeConfig;
 }
 
 export function setRuntimeConfig(config: Partial<RuntimeConfig>): void {
@@ -16,7 +16,7 @@ export function setRuntimeConfig(config: Partial<RuntimeConfig>): void {
     context[initialConfig] = { ...window._erc };
   }
 
-  window._erc = { ...window._erc, ...config };
+  window._erc = { ...window._erc, ...(config as RuntimeConfig) };
 
   registerDestructor(context.owner, () => {
     window._erc = context[initialConfig];

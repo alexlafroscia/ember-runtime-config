@@ -1,3 +1,5 @@
+'use strict';
+
 const { addonV1Shim } = require('@embroider/addon-shim');
 const middleware = require('./middleware');
 const { join } = require('path');

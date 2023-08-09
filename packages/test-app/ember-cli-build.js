@@ -4,15 +4,12 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
-    // Add options here
+    'ember-cli-babel': { enableTypeScriptTransform: true },
+    autoImport: {
+      watchDependencies: ['ember-runtime-config'],
+    },
   });
 
   const { maybeEmbroider } = require('@embroider/test-setup');
-  return maybeEmbroider(app, {
-    skipBabel: [
-      {
-        package: 'qunit',
-      },
-    ],
-  });
+  return maybeEmbroider(app);
 };

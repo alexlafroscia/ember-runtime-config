@@ -1,21 +1,5 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
-
-# compiled output
-/dist
-/tmp
-
-# dependencies
-/node_modules
-
-# misc
-/.sass-cache
-/connect.lock
-/coverage/*
-/libpeerconnection.log
-npm-debug.log*
-yarn-error.log
-testem.log
-.eslintcache
-
-# broccoli-debug
-/DEBUG/
+# The authoritative copies of these live in the monorepo root (because they're
+# more useful on github that way), but the build copies them into here so they
+# will also appear in published NPM packages.
+/README.md
+/LICENSE.md

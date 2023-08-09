@@ -11,20 +11,27 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "yarn workspace ember-runtime-config build",
-    "prepare": "([ -n \"$CI\" ] || husky install) && yarn build",
-    "test": "yarn workspace test-app test"
+    "build": "yarn workspace ember-runtime-config run build",
+    "lint": "yarn workspaces run lint",
+    "lint:fix": "yarn workspaces run lint:fix",
+    "prepare": "yarn build",
+    "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
+    "start:addon": "yarn workspace ember-runtime-config run start",
+    "start:test-app": "yarn workspace test-app run start",
+    "test": "yarn workspaces run test"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
-    "husky": "^7.0.4"
+    "concurrently": "^7.2.1",
+    "husky": "^8.0.3"
   },
-  "engines": {
-    "node": "14.* || 16.* || >= 18"
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "volta": {
-    "node": "14.21.1",
+    "node": "16.20.2",
     "yarn": "1.22.19"
-  }
+  },
+  "dependencies": {}
 }

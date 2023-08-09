@@ -8,20 +8,24 @@
 
 ## Linting
 
-Inside any of the packages you can run:
+- `yarn lint`
+- `yarn lint:fix`
 
-* `yarn lint`
-* `yarn lint:fix`
+## Building the addon
+
+- `cd packages/ember-runtime-config`
+- `yarn build`
 
 ## Running tests
 
-* `cd packages/ember-runtime-config && ember test` – Runs the test suite on the current Ember version
-* `cd packages/ember-runtime-config && cd test-app && ember test --server` – Runs the test suite in "watch mode"
-* `cd packages/ember-runtime-config && cd test-app && ember try:each` – Runs the test suite against multiple Ember versions
+- `cd packages/test-app`
+- `yarn test` – Runs the test suite on the current Ember version
+- `yarn test:watch` – Runs the test suite in "watch mode"
 
-## Running the dummy application
+## Running the test application
 
-* `cd packages/ember-runtime-config && ember serve`
-* Visit the dummy application at [http://localhost:4200](http://localhost:4200).
+- `cd packages/test-app`
+- `yarn start`
+- Visit the test application at [http://localhost:4200](http://localhost:4200).
 
 For more information on using ember-cli, visit [https://cli.emberjs.com/release/](https://cli.emberjs.com/release/).

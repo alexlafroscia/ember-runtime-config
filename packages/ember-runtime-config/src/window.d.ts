@@ -1,4 +1,4 @@
-import { RuntimeConfig } from 'ember-runtime-config';
+import { RuntimeConfig } from './index.ts';
 
 declare global {
   interface Window {

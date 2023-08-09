@@ -1,7 +1,7 @@
 import { defer } from 'rsvp';
 import { later } from '@ember/runloop';
 
-import type ConfigRegistry from 'ember-runtime-config/registry';
+import type ConfigRegistry from './registry.ts';
 
 export type RuntimeConfig = keyof ConfigRegistry extends never
   ? { [key: string]: string }
@@ -23,10 +23,10 @@ export function awaitRuntimeConfig(): Promise<RuntimeConfig> {
 }
 
 export default new Proxy(window._erc, {
-  get<K extends keyof RuntimeConfig = keyof RuntimeConfig>(
+  get<K extends keyof RuntimeConfig>(
     _target: RuntimeConfig,
     prop: string
   ): RuntimeConfig[K] {
-    return window._erc[prop];
+    return window._erc[prop]!;
   },
 });
