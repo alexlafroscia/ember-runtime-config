@@ -124,6 +124,9 @@
     "*": {
       "*": [
         "declarations/*"
+      ],
+      "test-support": [
+        "./declarations/test-support/index.d.ts"
       ]
     }
   },
