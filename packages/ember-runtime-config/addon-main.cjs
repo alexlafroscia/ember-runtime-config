@@ -25,9 +25,10 @@ module.exports = {
     app.use(middleware(projectRoot(this.project)));
   },
 
-  contentFor(hook) {
-    if (hook === 'head') {
-      return `<script type="text/javascript" src="/__/env.js" data-embroider-ignore></script>`;
+  contentFor(type, config) {
+    if (type === 'head') {
+      const defer = config.deferScript ? 'defer' : '';
+      return `<script type="text/javascript" src="/__/env.js" ${defer} data-embroider-ignore></script>`;
     }
   },
 };
