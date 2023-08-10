@@ -1,1 +1,1 @@
-export { setRuntimeConfig } from './helpers/set-runtime-config';
+export { setRuntimeConfig } from './helpers/set-runtime-config.ts';

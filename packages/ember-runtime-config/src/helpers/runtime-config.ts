@@ -1,19 +1,10 @@
 import { helper } from '@ember/component/helper';
-import config, { type RuntimeConfig } from '../index';
+import config, { type RuntimeConfig } from '../index.ts';
 
-export interface RuntimeConfigSignature<
-  K extends keyof RuntimeConfig = keyof RuntimeConfig
-> {
-  Args: {
-    Positional: [K];
-  };
-  Return: RuntimeConfig[K];
-}
-
-function runtimeConfig<K extends keyof RuntimeConfig = keyof Config>([key]: [
+function runtimeConfig<K extends keyof RuntimeConfig>([key]: [
   K
 ]): RuntimeConfig[K] {
   return config[key];
 }
 
-export default helper<RuntimeConfigSignature>(runtimeConfig);
+export default helper(runtimeConfig);

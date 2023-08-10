@@ -1,5 +1,4 @@
-ember-runtime-config [![Build Status](https://github.com/alexlafroscia/ember-runtime-config/actions/workflows/ci.yml/badge.svg)](https://github.com/alexlafroscia/ember-runtime-config/actions/workflows/ci.yml)
-==============================================================================
+# ember-runtime-config [![Build Status](https://github.com/alexlafroscia/ember-runtime-config/actions/workflows/ci.yml/badge.svg)](https://github.com/alexlafroscia/ember-runtime-config/actions/workflows/ci.yml)
 
 > Configure an Ember application with server-side environment variables
 
@@ -10,16 +9,12 @@ But what happens if you want to build your application once, but still configure
 This addon allows you to do just that!
 
 
-Compatibility
-------------------------------------------------------------------------------
+## Compatibility
 
-* Ember.js v3.24 or above
-* Ember CLI v3.24 or above
-* Node.js v14 or above
+- Ember.js v3.28 or above
+- Embroider or ember-auto-import v2
 
-
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 ```
 ember install ember-runtime-config
@@ -40,8 +35,7 @@ Additionally, yu may use template helper `runtime-config` to access the variable
 ```
 
 
-Usage
-------------------------------------------------------------------------------
+## Usage
 
 In development, the environment will be exposed to your Ember application automatically by hooking into the development server.
 
@@ -86,8 +80,8 @@ module.exports = function () {
 
 More info can be found in [ember-cli-fastboot](https://github.com/ember-fastboot/ember-cli-fastboot/tree/master/packages/fastboot#usage).
 
-Test helpers
-------------------------------------------------------------------------------
+### Test helpers
+
 ```setRuntimeConfig``` set custom config in application.
 
 Example:
@@ -109,8 +103,7 @@ module('Acceptance | Awesome test', function (hooks) {
 });
 ```
 
-TypeScript
-------------------------------------------------------------------------------
+### TypeScript
 
 The library ships with full support for TypeScript usage.
 The API described above works as expected, with one additional nicety and one caveat.
@@ -164,7 +157,9 @@ from somewhere in your app. When using Glint already, you will likely have a fil
 
  ```ts
  import '@glint/environment-ember-loose';
+
  import type EmberRuntimeConfigRegistry from 'ember-runtime-config/template-registry';
+
  declare module '@glint/environment-ember-loose/registry' {
    export default interface Registry extends EmberRuntimeConfigRegistry, /* other addon registries */ {
      // local entries
@@ -172,22 +167,16 @@ from somewhere in your app. When using Glint already, you will likely have a fil
  }
  ```
 
-> **Note** Glint itself is still under active development, and as such breaking changes might occur.
-> Therefore, Glint support by this addon is also considered experimental, and not covered by our SemVer contract!
-
 #### Stability
 
 This library provides type definitions and follows the current draft of the
 [Semantic Versioning for TypeScript Types](https://www.semver-ts.org) specification.
 The public API is all published types. It currently supports TypeScript 4.4 - 4.9.
 
-Contributing
-------------------------------------------------------------------------------
+## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
-
-License
-------------------------------------------------------------------------------
+## License
 
 This project is licensed under the [MIT License](LICENSE.md).
