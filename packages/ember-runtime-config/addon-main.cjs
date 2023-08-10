@@ -27,7 +27,7 @@ module.exports = {
 
   contentFor(type, config) {
     if (type === 'head') {
-      const defer = config.deferScript ? 'defer' : '';
+      const defer = config.runtimeConfig?.deferScript ? 'defer' : '';
       return `<script type="text/javascript" src="/__/env.js" ${defer} data-embroider-ignore></script>`;
     }
   },
