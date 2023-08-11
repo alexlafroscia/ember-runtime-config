@@ -22,11 +22,12 @@ export function awaitRuntimeConfig(): Promise<RuntimeConfig> {
   return config.promise;
 }
 
-export default new Proxy(window._erc, {
+export default new Proxy({} as RuntimeConfig, {
   get<K extends keyof RuntimeConfig>(
-    _target: RuntimeConfig,
+    target: RuntimeConfig,
     prop: string
   ): RuntimeConfig[K] {
-    return window._erc[prop]!;
+    // Safeguard for the case if /env.js has not resolved yet.
+    return (window._erc || target)[prop]!;
   },
 });
