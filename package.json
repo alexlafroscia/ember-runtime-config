@@ -1,5 +1,4 @@
 {
-  "name": "ember-runtime-config",
   "private": true,
   "repository": {
     "type": "git",
@@ -7,18 +6,15 @@
   },
   "license": "MIT",
   "author": "Alex LaFroscia",
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
-    "build": "yarn workspace ember-runtime-config run build",
-    "lint": "yarn workspaces run lint",
-    "lint:fix": "yarn workspaces run lint:fix",
-    "prepare": "yarn build",
+    "build": "pnpm --filter=ember-runtime-config run build",
+    "lint": "pnpm -r run lint",
+    "lint:fix": "pnpm -r run lint:fix",
+    "prepare": "pnpm run build",
     "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
-    "start:addon": "yarn workspace ember-runtime-config run start",
-    "start:test-app": "yarn workspace test-app run start",
-    "test": "yarn workspaces run test"
+    "start:addon": "pnpm --filter=ember-runtime-config run start",
+    "start:test-app": "pnpm --filter=test-app run start",
+    "test": "pnpm --filter=test-app run test"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
@@ -29,9 +25,10 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
+  "packageManager": "pnpm@9.5.0",
   "volta": {
     "node": "16.20.2",
-    "yarn": "1.22.19"
+    "pnpm": "9.5.0"
   },
   "dependencies": {}
 }

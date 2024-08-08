@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.8.4",
+    "@types/rsvp": "^4.0.4",
     "theredoc": "^1.0.0"
   },
   "devDependencies": {
@@ -57,11 +58,12 @@
     "@glint/core": "^1.0.2",
     "@glint/environment-ember-loose": "^1.0.2",
     "@glint/template": "^1.0.2",
+    "@rollup/plugin-babel": "^6.0.3",
     "@tsconfig/ember": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
-    "@rollup/plugin-babel": "^6.0.3",
     "concurrently": "^8.2.0",
+    "ember-source": "^5.10.2",
     "ember-template-lint": "^5.11.1",
     "eslint": "^8.46.0",
     "eslint-config-prettier": "^8.10.0",
@@ -74,7 +76,8 @@
     "typescript": "^5.1.6"
   },
   "peerDependencies": {
-    "@ember/test-helpers": "*"
+    "@ember/test-helpers": "*",
+    "ember-source": "^3.28.0 || ^4.0.0 || >= 5.0.0"
   },
   "peerDependenciesMeta": {
     "@ember/test-helpers": {

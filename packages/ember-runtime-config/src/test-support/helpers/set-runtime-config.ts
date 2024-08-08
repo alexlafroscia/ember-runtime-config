@@ -1,5 +1,5 @@
 import { registerDestructor } from '@ember/destroyable';
-import { getContext, TestContext } from '@ember/test-helpers';
+import { getContext, type TestContext } from '@ember/test-helpers';
 
 import type { RuntimeConfig } from '../../index.ts';
 
