@@ -4,28 +4,28 @@
 
 * `git clone https://github.com/alexlafroscia/ember-runtime-config.git`
 * `cd ember-runtime-config`
-* `yarn install`
+* `pnpm install`
 
 ## Linting
 
-- `yarn lint`
-- `yarn lint:fix`
+- `pnpm run lint`
+- `pnpm run lint:fix`
 
 ## Building the addon
 
 - `cd packages/ember-runtime-config`
-- `yarn build`
+- `pnpm run build`
 
 ## Running tests
 
 - `cd packages/test-app`
-- `yarn test` – Runs the test suite on the current Ember version
-- `yarn test:watch` – Runs the test suite in "watch mode"
+- `pnpm run test` – Runs the test suite on the current Ember version
+- `pnpm run test:watch` – Runs the test suite in "watch mode"
 
 ## Running the test application
 
 - `cd packages/test-app`
-- `yarn start`
+- `pnpm run start`
 - Visit the test application at [http://localhost:4200](http://localhost:4200).
 
 For more information on using ember-cli, visit [https://cli.emberjs.com/release/](https://cli.emberjs.com/release/).
