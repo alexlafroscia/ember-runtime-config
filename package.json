@@ -26,6 +26,29 @@
     "registry": "https://registry.npmjs.org"
   },
   "packageManager": "pnpm@9.7.0",
+  "pnpm": {
+    "packageExtensions": {
+      "ember-cli-fastboot-testing": {
+        "peerDependencies": {
+          "@ember/test-helpers": "^2.0.0 || ^3.2.0"
+        },
+        "peerDependenciesMeta": {
+          "@ember/test-helpers": {
+            "optional": true
+          }
+        }
+      }
+    },
+    "peerDependencyRules": {
+      "allowAny": [
+        "ember-runtime-config",
+        "typescript"
+      ],
+      "ignoreMissing": [
+        "webpack"
+      ]
+    }
+  },
   "volta": {
     "node": "20.16.0",
     "pnpm": "9.7.0"
