@@ -91,9 +91,6 @@
   },
   "pnpm": {
     "peerDependencyRules": {
-      "ignoreMissing": [
-        "webpack"
-      ],
       "allowAny": [
         "ember-source",
         "typescript"
