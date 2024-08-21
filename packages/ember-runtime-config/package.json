@@ -124,7 +124,7 @@
     "./middleware": "./middleware/index.js"
   },
   "typesVersions": {
-    ">=5.0.0": {
+    "*": {
       "*": [
         "declarations/*"
       ],
