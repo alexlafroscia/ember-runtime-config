@@ -43,6 +43,9 @@
       "allowAny": [
         "ember-runtime-config",
         "typescript"
+      ],
+      "ignoreMissing": [
+        "webpack"
       ]
     }
   },
