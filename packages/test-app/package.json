@@ -24,7 +24,7 @@
     "lint:types": "tsc --noEmit",
     "start": "ember serve",
     "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\"",
-    "test:ember": "GREETING='Hello, world!' ember test",
+    "test:ember": "pnpm _syncPnpm && GREETING='Hello, world!' ember test",
     "_syncPnpm": "DEBUG=true pnpm sync-dependencies-meta-injected"
   },
   "devDependencies": {
@@ -73,6 +73,7 @@
     "eslint-plugin-qunit": "^8.0.0",
     "express": "^4.17.3",
     "loader.js": "^4.7.0",
+    "pnpm-sync-dependencies-meta-injected": "^0.0.8",
     "prettier": "^2.8.8",
     "qunit": "^2.19.4",
     "qunit-dom": "^2.0.0",
@@ -82,6 +83,11 @@
     "tracked-built-ins": "^3.1.1",
     "typescript": "^5.1.6",
     "webpack": "^5.88.1"
+  },
+  "dependenciesMeta": {
+    "ember-runtime-config": {
+      "injected": true
+    }
   },
   "pnpm": {
     "peerDependencyRules": {
