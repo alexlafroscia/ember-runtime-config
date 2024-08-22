@@ -70,7 +70,16 @@
       "@release-it-plugins/workspaces": {
         "workspaces": [
           "ember-runtime-config"
-        ]
+        ],
+        "additionalManifests": {
+          "dependencyUpdates": [
+            "test-app/package.json"
+          ],
+          "versionUpdates": [
+            "package.json",
+            "test-app/package.json"
+          ]
+        }
       }
     },
     "git": {
