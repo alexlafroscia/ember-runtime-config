@@ -11,6 +11,7 @@
     "lint": "pnpm -r run lint",
     "lint:fix": "pnpm -r run lint:fix",
     "prepare": "pnpm run build",
+    "release": "release-it",
     "start": "concurrently 'pnpm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
     "start:addon": "pnpm --filter=ember-runtime-config run start",
     "start:test-app": "pnpm --filter=test-app run start",
