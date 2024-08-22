@@ -1,7 +1,7 @@
 'use strict';
 
 const theredoc = require('theredoc');
-const getConfig = require('../lib/get-config');
+const getConfig = require('../lib/get-config.js');
 
 module.exports = function (projectRoot) {
   const runtimeConfig = getConfig(projectRoot);

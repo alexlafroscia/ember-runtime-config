@@ -11,16 +11,19 @@
     "lint": "pnpm -r run lint",
     "lint:fix": "pnpm -r run lint:fix",
     "prepare": "pnpm run build",
-    "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
+    "start": "concurrently 'pnpm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
     "start:addon": "pnpm --filter=ember-runtime-config run start",
     "start:test-app": "pnpm --filter=test-app run start",
-    "test": "pnpm --filter=test-app run test"
+    "test": "pnpm --filter=test-app run test",
+    "test:ember": "pnpm --filter '*' test:ember"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.2.3",
-    "@commitlint/config-conventional": "^16.2.1",
-    "concurrently": "^7.2.1",
-    "husky": "^8.0.3"
+    "@commitlint/cli": "^19.4.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@glint/core": "^1.2.1",
+    "concurrently": "^8.2.2",
+    "husky": "^9.1.5",
+    "prettier-plugin-ember-template-tag": "^2.0.2"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
@@ -42,6 +45,7 @@
     "peerDependencyRules": {
       "allowAny": [
         "ember-runtime-config",
+        "ember-source",
         "typescript"
       ],
       "ignoreMissing": [
@@ -52,6 +56,5 @@
   "volta": {
     "node": "20.16.0",
     "pnpm": "9.7.0"
-  },
-  "dependencies": {}
+  }
 }

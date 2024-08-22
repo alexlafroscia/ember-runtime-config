@@ -1,3 +1,4 @@
+/* eslint-disable ember/no-runloop */
 import { defer } from 'rsvp';
 import { later } from '@ember/runloop';
 
@@ -25,7 +26,7 @@ export function awaitRuntimeConfig(): Promise<RuntimeConfig> {
 export default new Proxy({} as RuntimeConfig, {
   get<K extends keyof RuntimeConfig>(
     target: RuntimeConfig,
-    prop: string
+    prop: string,
   ): RuntimeConfig[K] {
     // Safeguard for the case if /env.js has not resolved yet.
     return (window._erc || target)[prop]!;
