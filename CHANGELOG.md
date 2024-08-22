@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file. See [standa
 
 <a name="1.0.1"></a>
 
+
+## v2.0.1 (2024-08-22)
+
+#### :memo: Documentation
+* `ember-runtime-config`
+  * [#22](https://github.com/alexlafroscia/ember-runtime-config/pull/22) (docs) fix typescript support version ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 1
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+
 ## v2.0.0 (2024-08-22)
 
 #### :boom: Breaking Change
