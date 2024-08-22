@@ -15,61 +15,48 @@ jobs:
   test:
     name: "Tests"
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - uses: actions/checkout@v4
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v3
         with:
-          version: 9.7.0
-      - name: Install Node
-        uses: actions/setup-node@v4
+          version: 9
+      - uses: actions/setup-node@v4
         with:
-          node-version: 20.x
+          node-version: 20
           cache: pnpm
-
       - name: Install Dependencies
-        run: pnpm i --frozen-lockfile
-
-      - name: Lint Addon
-        run: pnpm run lint:js
-        working-directory: packages/ember-runtime-config
-
-      - name: Lint Test App
-        run: pnpm run lint:js
-        working-directory: packages/test-app
-
+        run: pnpm install --frozen-lockfile
+      - name: Lint
+        run: pnpm lint
       - name: Run Tests
-        run: pnpm run test:ember
-        working-directory: packages/test-app
+        run: pnpm test
 
   floating:
     name: "Floating Dependencies"
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - uses: actions/checkout@v4
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v3
         with:
-          version: 9.7.0
-      - name: Install Node
-        uses: actions/setup-node@v4
+          version: 9
+      - uses: actions/setup-node@v4
         with:
-          node-version: 20.x
+          node-version: 20
           cache: pnpm
-
       - name: Install Dependencies
-        run: pnpm i --no-lockfile
-
+        run: pnpm install --no-lockfile
       - name: Run Tests
-        run: pnpm run test:ember
-        working-directory: packages/test-app
+        run: pnpm test
 
   try-scenarios:
     name: ${{ matrix.try-scenario }}
     runs-on: ubuntu-latest
-    needs: "test"
+    needs: 'test'
+    timeout-minutes: 10
     env:
       GREETING: "Hello, world!"
 
@@ -81,6 +68,8 @@ jobs:
           - ember-lts-4.4
           - ember-lts-4.8
           - ember-lts-4.12
+          - ember-lts-5.4
+          - ember-lts-5.8
           - ember-release
           - ember-beta
           - ember-canary
@@ -89,55 +78,53 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v3
         with:
-          version: 9.7.0
-      - name: Install Node
-        uses: actions/setup-node@v4
+          version: 9
+      - uses: actions/setup-node@v4
         with:
-          node-version: 20.x
+          node-version: 20
           cache: pnpm
-
       - name: Install Dependencies
-        run: pnpm i --frozen-lockfile
-
+        run: pnpm install --frozen-lockfile
       - name: Run Tests
-        run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }} --skip-cleanup=true
+        run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }} --skip-cleanup
         working-directory: packages/test-app
 
   types:
-    name: type tests
+    name: "Type checking - ${{ matrix.typescript-scenario }}"
     runs-on: ubuntu-latest
 
     strategy:
       fail-fast: false
       matrix:
-        ts-version:
-          - 5.0
-          - next
+        typescript-scenario:
+          - typescript@5.0
+          - typescript@5.1
+          - typescript@5.2
+          - typescript@5.3
+          - typescript@5.4
+          - typescript@5.5
+          - typescript@next
 
     steps:
       - uses: actions/checkout@v4
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v3
         with:
-          version: 9.7.0
-      - name: Install Node
-        uses: actions/setup-node@v4
+          version: 9
+      - uses: actions/setup-node@v4
         with:
-          node-version: 20.x
+          node-version: 20
           cache: pnpm
-
       - name: Install Dependencies
-        run: pnpm i --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Install TypeScript
-        run: pnpm add -D typescript@${{ matrix.ts-version }}
+        run: pnpm add -D ${{ matrix.typescript-scenario }}
         working-directory: packages/ember-runtime-config
 
       - name: Compile TypeScript
-        run: tsc --noEmit
+        run: tsc --noEmit --emitDeclarationOnly false
         working-directory: packages/ember-runtime-config
 
-    continue-on-error: ${{ matrix.ts-version == 'next' }}
+    continue-on-error: ${{ matrix.typescript-scenario == 'typescript@next' }}

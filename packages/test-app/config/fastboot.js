@@ -12,8 +12,8 @@ module.exports = function () {
         defaultGlobals,
         require('ember-runtime-config/fastboot').buildSandboxGlobals(
           dirname(__dirname),
-          fastbootOnlyConfig
-        )
+          fastbootOnlyConfig,
+        ),
       );
     },
   };

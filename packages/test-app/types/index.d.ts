@@ -7,7 +7,7 @@ import type EmberRuntimeConfigRegistry from 'ember-runtime-config/template-regis
 
 declare module '@glint/environment-ember-loose/registry' {
   // Remove this once entries have been added! 👇
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface, @typescript-eslint/no-empty-object-type
   export default interface Registry
     extends EmberRuntimeConfigRegistry /* other addon registries */ {
     // local entries

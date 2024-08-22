@@ -3,13 +3,13 @@
   "packages": [
     {
       "name": "@embroider/addon-blueprint",
-      "version": "2.1.0",
+      "version": "2.17.0",
       "blueprints": [
         {
           "name": "@embroider/addon-blueprint",
           "isBaseBlueprint": true,
           "options": [
-            "--yarn",
+            "--pnpm",
             "--ci-provider=github",
             "--addon-location=packages/ember-runtime-config",
             "--test-app-location=packages/test-app",
