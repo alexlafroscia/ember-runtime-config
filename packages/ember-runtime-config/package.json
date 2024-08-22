@@ -1,6 +1,6 @@
 {
   "name": "ember-runtime-config",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Configure an Ember application with server-side environment variables",
   "keywords": [
     "ember-addon"

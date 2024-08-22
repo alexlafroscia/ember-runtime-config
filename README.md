@@ -11,7 +11,7 @@ This addon allows you to do just that!
 
 ## Compatibility
 
-- Ember.js v4.12 or above
+- Ember.js v3.28 or above
 - Embroider or ember-auto-import v2
 
 ## Installation
@@ -171,7 +171,7 @@ from somewhere in your app. When using Glint already, you will likely have a fil
 
 This library provides type definitions and follows the current draft of the
 [Semantic Versioning for TypeScript Types](https://www.semver-ts.org) specification.
-The public API is all published types. It currently supports TypeScript 4.4 - 4.9.
+The public API is all published types. It currently supports TypeScript 5.0 - 5.5.
 
 ## Contributing
 
