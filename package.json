@@ -1,0 +1,139 @@
+{
+  "name": "ember-runtime-config",
+  "version": "2.0.1",
+  "description": "Configure an Ember application with server-side environment variables",
+  "keywords": [
+    "ember-addon"
+  ],
+  "homepage": "https://github.com/alexlafroscia/ember-runtime-config/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexlafroscia/ember-runtime-config.git",
+    "directory": "packages/ember-runtime-config"
+  },
+  "license": "MIT",
+  "author": "Alex LaFroscia",
+  "files": [
+    "addon-main.cjs",
+    "declarations",
+    "blueprints",
+    "dist",
+    "fastboot",
+    "lib",
+    "middleware"
+  ],
+  "scripts": {
+    "build": "concurrently 'pnpm:build:*'",
+    "build:js": "rollup --config",
+    "build:types": "glint --declaration && npm run fix-types",
+    "fix-types": "node ./fix-declaration.mjs",
+    "lint": "concurrently 'pnpm:lint:*(!fix)' --names 'lint:'",
+    "lint:fix": "concurrently 'pnpm:lint:*:fix' --names 'fix:'",
+    "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
+    "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
+    "lint:types": "glint",
+    "start": "concurrently 'pnpm:start:*'",
+    "start:js": "rollup --config --watch --no-watch.clearScreen",
+    "start:types": "glint --declaration --watch",
+    "test": "echo 'A v2 addon does not have tests, run tests in test-app'"
+  },
+  "dependencies": {
+    "@embroider/addon-shim": "^1.9.0",
+    "@types/rsvp": "^4.0.9",
+    "decorator-transforms": "^2.2.4",
+    "theredoc": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/plugin-transform-typescript": "^7.25.9",
+    "@babel/preset-typescript": "^7.26.0",
+    "@babel/runtime": "^7.26.0",
+    "@embroider/addon-dev": "^6.0.1",
+    "@glimmer/component": "^1.1.2",
+    "@glint/core": "^1.5.0",
+    "@glint/environment-ember-loose": "^1.5.0",
+    "@glint/environment-ember-template-imports": "^1.5.0",
+    "@glint/template": "^1.5.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@tsconfig/ember": "^3.0.8",
+    "@typescript-eslint/eslint-plugin": "^8.13.0",
+    "@typescript-eslint/parser": "^8.13.0",
+    "babel-plugin-ember-template-compilation": "^2.3.0",
+    "concurrently": "^9.1.0",
+    "ember-source": "~5.12.0",
+    "ember-template-lint": "^6.0.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-ember": "^12.3.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-n": "^17.13.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3",
+    "prettier-plugin-ember-template-tag": "^2.0.4",
+    "rollup": "^4.24.4",
+    "typescript": "^5.6.3"
+  },
+  "peerDependencies": {
+    "@ember/test-helpers": "*",
+    "ember-source": "^3.28.0 || ^4.0.0 || >= 5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@ember/test-helpers": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "ember": {
+    "edition": "octane"
+  },
+  "ember-addon": {
+    "version": 2,
+    "type": "addon",
+    "main": "addon-main.cjs",
+    "versionCompatibility": {
+      "ember": "3.28 || >=4.0"
+    },
+    "after": [
+      "ember-cli-dotenv"
+    ],
+    "app-js": {
+      "./helpers/runtime-config.js": "./dist/_app_/helpers/runtime-config.js"
+    }
+  },
+  "exports": {
+    ".": {
+      "types": "./declarations/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./declarations/*.d.ts",
+      "default": "./dist/*.js"
+    },
+    "./test-support": {
+      "types": "./declarations/test-support/index.d.ts",
+      "default": "./dist/test-support/index.js"
+    },
+    "./addon-main.js": "./addon-main.cjs",
+    "./blueprints": "./blueprints/*",
+    "./fastboot": "./fastboot/index.js",
+    "./lib": "./lib/*",
+    "./middleware": "./middleware/index.js"
+  },
+  "typesVersions": {
+    ">=5.0.0": {
+      "*": [
+        "declarations/*"
+      ],
+      "test-support": [
+        "./declarations/test-support/index.d.ts"
+      ]
+    }
+  },
+  "volta": {
+    "extends": "../../package.json"
+  }
+}
