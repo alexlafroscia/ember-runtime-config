@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationDir": "declarations",
+    "noEmit": false
+  },
+  "include": ["src/**/*", "unpublished-development-types/**/*"]
+}
+

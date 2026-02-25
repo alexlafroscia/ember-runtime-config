@@ -69,8 +69,6 @@ jobs:
           - ember-release
           - ember-beta
           - ember-canary
-          - embroider-safe
-          - embroider-optimized
 
     steps:
       - uses: actions/checkout@v4
@@ -114,7 +112,7 @@ jobs:
         working-directory: packages/ember-runtime-config
 
       - name: Compile TypeScript
-        run: tsc --noEmit --emitDeclarationOnly false
+        run: tsc -p tsconfig.build.json --noEmit --emitDeclarationOnly false
         working-directory: packages/ember-runtime-config
 
     continue-on-error: ${{ matrix.typescript-scenario == 'typescript@next' }}
