@@ -20,7 +20,7 @@ This addon allows you to do just that!
 ember install ember-runtime-config
 ```
 
-Then, edit the configuration in `config/ember-runtime-config.js` to define the variables you want access to in your application.
+Then, edit the configuration in `config/ember-runtime-config.{js,cjs,mjs}` to define the variables you want access to in your application.
 
 To access the variables from the client, you can import the environment like so:
 
