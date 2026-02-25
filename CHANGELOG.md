@@ -1,5 +1,28 @@
 # Changelog
 
+## Release (2026-02-25)
+
+* ember-runtime-config 2.1.0 (minor)
+
+#### :rocket: Enhancement
+* `ember-runtime-config`
+  * [#26](https://github.com/alexlafroscia/ember-runtime-config/pull/26) Allow config/ember-runtime-config to be defined as either ESM or CJS ([@SergeAstapov](https://github.com/SergeAstapov))
+* Other
+  * [#28](https://github.com/alexlafroscia/ember-runtime-config/pull/28) Replace release-it with release-plan ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### :house: Internal
+* `ember-runtime-config`
+  * [#30](https://github.com/alexlafroscia/ember-runtime-config/pull/30) Bump more deps ([@SergeAstapov](https://github.com/SergeAstapov))
+  * [#27](https://github.com/alexlafroscia/ember-runtime-config/pull/27) Bump prettier ([@SergeAstapov](https://github.com/SergeAstapov))
+  * [#24](https://github.com/alexlafroscia/ember-runtime-config/pull/24) Bump addon dependencies ([@SergeAstapov](https://github.com/SergeAstapov))
+* Other
+  * [#31](https://github.com/alexlafroscia/ember-runtime-config/pull/31) Update TypeScript testing matrix ([@SergeAstapov](https://github.com/SergeAstapov))
+  * [#25](https://github.com/alexlafroscia/ember-runtime-config/pull/25) Bump test-app dependencies ([@SergeAstapov](https://github.com/SergeAstapov))
+  * [#23](https://github.com/alexlafroscia/ember-runtime-config/pull/23) Bump devDependencies ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 1
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+
 # Change Log
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.

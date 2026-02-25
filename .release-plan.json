@@ -1,0 +1,22 @@
+{
+  "solution": {
+    "ember-runtime-config": {
+      "impact": "minor",
+      "oldVersion": "2.0.1",
+      "newVersion": "2.1.0",
+      "tagName": "latest",
+      "constraints": [
+        {
+          "impact": "minor",
+          "reason": "Appears in changelog section :rocket: Enhancement"
+        },
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :house: Internal"
+        }
+      ],
+      "pkgJSONPath": "./packages/ember-runtime-config/package.json"
+    }
+  },
+  "description": "## Release (2026-02-25)\n\n* ember-runtime-config 2.1.0 (minor)\n\n#### :rocket: Enhancement\n* `ember-runtime-config`\n  * [#26](https://github.com/alexlafroscia/ember-runtime-config/pull/26) Allow config/ember-runtime-config to be defined as either ESM or CJS ([@SergeAstapov](https://github.com/SergeAstapov))\n* Other\n  * [#28](https://github.com/alexlafroscia/ember-runtime-config/pull/28) Replace release-it with release-plan ([@SergeAstapov](https://github.com/SergeAstapov))\n\n#### :house: Internal\n* `ember-runtime-config`\n  * [#30](https://github.com/alexlafroscia/ember-runtime-config/pull/30) Bump more deps ([@SergeAstapov](https://github.com/SergeAstapov))\n  * [#27](https://github.com/alexlafroscia/ember-runtime-config/pull/27) Bump prettier ([@SergeAstapov](https://github.com/SergeAstapov))\n  * [#24](https://github.com/alexlafroscia/ember-runtime-config/pull/24) Bump addon dependencies ([@SergeAstapov](https://github.com/SergeAstapov))\n* Other\n  * [#31](https://github.com/alexlafroscia/ember-runtime-config/pull/31) Update TypeScript testing matrix ([@SergeAstapov](https://github.com/SergeAstapov))\n  * [#25](https://github.com/alexlafroscia/ember-runtime-config/pull/25) Bump test-app dependencies ([@SergeAstapov](https://github.com/SergeAstapov))\n  * [#23](https://github.com/alexlafroscia/ember-runtime-config/pull/23) Bump devDependencies ([@SergeAstapov](https://github.com/SergeAstapov))\n\n#### Committers: 1\n- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))\n"
+}
